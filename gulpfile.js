@@ -16,13 +16,13 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 var src = {
-  'scss': ['scss/**/*.scss', '!scss/**/_*.scss'],
-  'scssWatch': 'csssrc/**/*.scss',
+  'scss': ['src/scss/style.scss'],
+  'scssWatch': 'src/**/*.scss',
   'js': ['src/**/*.js']
 };
 
 var dest = {
-  'css': './'
+  'css': './css'
 };
 
 //webpackによるバンドル
