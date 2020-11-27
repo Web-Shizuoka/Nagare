@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS document */
+
+html{
+  font-size: 18px;
+}
+
+body{
+  color: #444444;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.accordion{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.accordion.sono1>dl{
+  width: 300px;
+  border: solid 5px royalblue;
+  color: royalblue;
+}
+
+.accordion.sono2>dl{
+  width: 300px;
+  border: solid 5px orchid;
+  color: orchid;
+}
+
+.accordion dt{
+  padding: 50px;
+  color: #fff;
+}
+
+.accordion.sono1 dt{
+  background-color: royalblue;
+}
+
+.accordion.sono2 dt{
+  background-color: orchid;
+}
+
+.accordion dd{
+  padding: 100px 50px;
+  margin-left: 0;
+  display: none;
+}
+
+.accordion dd.is-open{
+  display: block;
+}

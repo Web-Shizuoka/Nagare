@@ -22,13 +22,14 @@ var src = {
 };
 
 var dest = {
-  'css': './css'
+  'css': 'htdocs/assets/css/',
+  'js': 'htdocs/assets/js/'
 };
 
 //webpackによるバンドル
 gulp.task('bundle', function(){
   return webpackStream(webpackConfig, webpack)
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest(dest.js));
 });
 
 //Sassのコンパイル
