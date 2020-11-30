@@ -11,7 +11,7 @@
                 if(has_post_thumbnail()) {
                   echo the_post_thumbnail('medium');
                 } else {
-                  ?><img src="<?php bloginfo('template_url'); ?>/images/default.png" /><?php
+                  ?><img src="<?php bloginfo('template_url'); ?>/assets/img/default.png" /><?php
                 }
               ?>
             </a>
