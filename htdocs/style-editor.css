@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* ただのブロックの幅を狭く */
+
+.wp-block:not([data-type="nagare/wrapper-width-100"]){
+    width: 610px;
+}
+
+@media screen and (max-width: 933px){
+
+    .wp-block:not([data-type="nagare/wrapper-width-100"]){
+        width: 100%;
+    }
+}
+
+/* 見出し等の幅調整 */
+
+div.editor-post-title>div.wp-block.editor-post-title__block,
+div[data-type="core/heading"].wp-block{
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+div[data-type="nagare/wrapper-width-100"].wp-block,
+div[data-type="nagare/block-width-100"].wp-block{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+div[data-type="nagare/wrapper-width-100"].wp-block div,
+div[data-type="nagare/block-width-100"].wp-block{
+    width: 100%;
+    margin: 0
+}
+
+div[data-type="nagare/wrapper-width-100"].wp-block div div.wp-block,div[data-type="nagare/block-width-100"].wp-block div.wp-block{
+    max-width: 100%;
+}
+
+div[data-type="core/media-text"].wp-block{
+    width: 100%;
+    max-width: 100%;
+}
+
+/* .block-editor-block-list__block.is-multi-selected>.block-editor-block-mover,
+.block-editor-block-list__block>.block-editor-block-list__block-edit>.block-editor-block-mover {
+    width: 30px;
+}
+@media (min-width: 600px){
+    .block-editor-block-contextual-toolbar .block-editor-block-toolbar {
+        width: auto;
+        border-right: none;
+        position: absolute;
+        left: 1px;
+        top: 1px;
+    }
+}
+div.editor-block-contextual-toolbar,
+div.block-editor-block-contextual-toolbar{
+    margin-left: -15px !important;
+}
+div.editor-block-toolbar,
+div.block-editor-block-toolbar{
+    width: auto !important;
+}
+div.components-toolbar{
+    width: fit-content !important;
+}
+div.components-toolbar>div.components-dropdown-menu,
+div.components-toolbar>div.block-editor-block-settings-menu{ */
+
+div.components-popover{
+    position: fixed;
+}
+
+/* ブロック追加ボタンの位置調整 */
+
+.block-list-appender,
+.components-popover{
+    position: relative
+}
+
+.block-list-appender div.block-editor-inserter,.components-popover div.block-editor-inserter{
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: -webkit-min-content !important;
+    width: -moz-min-content !important;
+    width: min-content !important;
+}
+
+.wp-block{
+    max-width: auto !important;
+    width: auto !important;
+}
