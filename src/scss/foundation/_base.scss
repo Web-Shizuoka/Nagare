@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/*****************************
+基本構造
+*****************************/
+html {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+a {
+    display: block;
+    -webkit-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+    height: 100%;
+}

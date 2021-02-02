@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
+// var uglify = require('gulp-uglify');
+// var rename = require('gulp-rename');
 
 var webpackStream = require("webpack-stream");
 var webpack = require("webpack");

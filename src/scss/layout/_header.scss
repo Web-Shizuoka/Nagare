@@ -1,0 +1,68 @@
+@charset "UTF-8";
+header {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 200;
+    .site_title{
+        margin-right: auto;
+        @media screen and (max-width: 768px){
+            width: 100%; 
+        }
+    }
+    #logo{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 70px;/*headerの高さはここで調整*/
+    }
+    ul {
+        list-style: none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        /*padding: 2rem 0;*/
+        @media screen and (max-width: 768px){
+            width: 100%;
+            padding-bottom: 0; 
+        }
+        li{
+            @media screen and (max-width: 768px){
+                width: 100%;
+                text-align: right;
+                padding: .5rem 0;
+            }
+        }
+        a { 
+            padding: 0 10px;
+            
+        }
+    }
+    nav{
+        @media screen and (max-width: 768px){
+            display: none;
+        }
+    }
+    .wrap{
+        @media screen and (max-width: 768px){
+            padding: 5px 15px;
+        }
+    }
+    @media screen and (max-width: 1240px){
+        padding: 10px;
+    }
+}//end of "header"
+
+

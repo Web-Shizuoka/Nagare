@@ -1,0 +1,41 @@
+@charset "UTF-8";
+//change color
+ins {
+    background-color:#ff9;
+    color:#000;
+}
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+hr {
+    border-top:1px solid #cccccc;
+}
+
+//ページ全体の基本の文字色
+body{
+    color: #242439;
+}
+
+//リンク色
+a {
+    color: #2BB24C;
+}
+
+header a{
+    color: #242439;
+    a:hover{
+        color: #8F758E;
+    }
+}
+
+
+//サイドバーのh3
+.contents .sidebar .side_widget h3{
+    background-color: #8F758E;
+    color: #f6f6f6;
+}
+
+
