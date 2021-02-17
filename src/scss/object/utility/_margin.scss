@@ -1,19 +1,54 @@
 @charset "UTF-8";
 .mb60 {
   margin-bottom: 60px;
-  @include sp {
+  @media screen and (max-width: 768px){
     margin-bottom: 30px;
   }
 }
 .mb50 {
   margin-bottom: 50px;
-  @include sp {
+  @media screen and (max-width: 768px){
     margin-bottom: 25px;
   }
 }
 .mb40 {
   margin-bottom: 40px;
-  @include sp {
+  @media screen and (max-width: 768px){
     margin-bottom: 20px;
   }
+}
+.mb30{
+  margin-bottom: 30px;
+  @media screen and (max-width: 768px){
+    margin-bottom: 15px;
+  }
+}
+
+.mt60{
+  margin-top: 60px;
+  @media screen and (max-width: 768px){
+    margin-top: 30px;
+  }
+}
+.mt50{
+  margin-top: 50px;
+  @media screen and (max-width: 768px){
+    margin-top: 25px;
+  }
+}
+.mt40{
+  margin-top: 40px;
+  @media screen and (max-width: 768px){
+    margin-top: 20px;
+  }
+}
+.mt30{
+  margin-top: 30px;
+  @media screen and (max-width: 768px){
+    margin-top: 15px;
+  }
+}
+
+.margin0auto{
+  margin: 0 auto; 
 }

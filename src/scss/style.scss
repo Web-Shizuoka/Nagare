@@ -23,9 +23,9 @@
 // -----------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------
-//@import 'object/component/_parts';
+@import 'object/component/_parts';
 //@import 'object/component/_breadcrumb';
-//@import 'object/component/_pagination';
+@import 'object/component/_pagination';
 
 // -----------------------------------------------------------------
 // Project
@@ -53,5 +53,6 @@
 // -----------------------------------------------------------------
 // Utility
 // -----------------------------------------------------------------
-//@import 'object/utility/_text';
-//@import 'object/utility/_margin';
+@import 'object/utility/_margin';
+@import 'object/utility/_animation';
+@import 'object/utility/_text';

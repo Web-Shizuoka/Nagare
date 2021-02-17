@@ -12,4 +12,64 @@ a {
     -webkit-transition: all 0.5s ease-out;
             transition: all 0.5s ease-out;
     height: 100%;
+    text-decoration: none;/* aタグに下線をつけるか否か */
 }
+
+body {
+    /*
+    font-family: -apple-system, BlinkMacSystemFont, "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    */
+    font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+  }
+  .contents{
+    .main{
+      line-height: 1.8;
+    }
+    .sidebar{
+      h3{
+        font-size: 1.8rem;
+      }
+      .widget-container{
+        ul{
+          line-height: 1.5;
+        }
+        form{
+          line-height: 1.5;
+          input[type="text"]{
+            line-height: 2;
+          }
+        }
+      }
+    }
+  }
+  // .inner{
+  //   line-height: 1.5;
+  // }
+  
+  header .site_title a{
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+
+/*****************************
+コンテンツ幅
+*****************************/
+body.home footer>.wrap,
+body.page footer>.wrap,
+body.single footer>.wrap{
+  width: 120rem;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+@media screen and (max-width: 1240px){
+ body.home footer>.wrap,
+body.page footer>.wrap,
+body.single footer>.wrap{ width: 100%; padding: 0 15px; } }
+body.page main{
+  width: 100%;
+}
+/* div.nagare-width100{
+  width: 100% !important;
+  z-index: 1000;
+} */

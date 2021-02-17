@@ -23,23 +23,35 @@ var src = {
 
 var dest = {
   'css': 'htdocs/assets/css/',
-  'js': 'htdocs/assets/js/'
+  'js': 'htdocs/assets/js/',
 };
 
-//webpackによるバンドル
-gulp.task('bundle', function(){
+//webpackによるバンドル(htdocsに)
+gulp.task('bundle1', function(){
   return webpackStream(webpackConfig, webpack)
-  .pipe(gulp.dest(dest.js))
-  .pipe(gulp.dest(static/assets/js));
+  .pipe(gulp.dest(dest.js));
 });
 
-//Sassのコンパイル
-gulp.task('sass', function(){
+//webpackによるバンドル(staticに)
+gulp.task('bundle2', function(){
+  return webpackStream(webpackConfig, webpack)
+  .pipe(gulp.dest('static/assets/js/'));
+});
+
+//Sassのコンパイル(htdocsに)
+gulp.task('sass1', function(){
   return gulp.src(src.scss)
   .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
   .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-  .pipe(gulp.dest(dest.css))
-  .pipe(gulp.dest(static/assets/css/));
+  .pipe(gulp.dest(dest.css));
+});
+
+//Sassのコンパイル(staticに)
+gulp.task('sass2', function(){
+  return gulp.src(src.scss)
+  .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
+  .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+  .pipe(gulp.dest('static/assets/css/'));
 });
 
 //watchタスク
@@ -50,5 +62,5 @@ gulp.task('watch', function() {
 
 //defaultタスク
 gulp.task('default',
-  gulp.series('bundle','sass','watch')
+  gulp.series('bundle1','bundle2','sass1','sass2','watch')
 );

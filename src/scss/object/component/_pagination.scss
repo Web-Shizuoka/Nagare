@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#main_contents .nav-below { 
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content:
+    space-between;
+    margin: 10px auto 0;
+    height: 50px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    max-width: 120rem;
+    width: calc(100% - 4rem);
+}
+#main_contents .nav-below .nav-previous a,
+#main_contents .nav-below .nav-next a{
+    display: block;
+    padding: 5px 1rem;
+    background-color: #89E0DA;
+    color: #715472;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
