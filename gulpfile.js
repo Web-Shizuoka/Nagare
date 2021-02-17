@@ -29,7 +29,8 @@ var dest = {
 //webpackによるバンドル
 gulp.task('bundle', function(){
   return webpackStream(webpackConfig, webpack)
-  .pipe(gulp.dest(dest.js));
+  .pipe(gulp.dest(dest.js))
+  .pipe(gulp.dest(static/assets/js));
 });
 
 //Sassのコンパイル
@@ -37,7 +38,8 @@ gulp.task('sass', function(){
   return gulp.src(src.scss)
   .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
   .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-  .pipe(gulp.dest(dest.css));
+  .pipe(gulp.dest(dest.css))
+  .pipe(gulp.dest(static/assets/css/));
 });
 
 //watchタスク
