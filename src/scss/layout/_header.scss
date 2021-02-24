@@ -1,13 +1,16 @@
 @charset "UTF-8";
 header {
-    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+    @include gradientDown;
     position: relative;
     z-index: 200;
     .site_title{
         margin-right: auto;
-        @media screen and (max-width: 768px){
+        @include narrow{
             width: 100%; 
+        }
+        a{
+            font-size: 2.5rem;
+            font-weight: bold;
         }
     }
     #logo{
@@ -25,7 +28,6 @@ header {
         height: 70px;/*headerの高さはここで調整*/
     }
     ul {
-        list-style: none;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -34,12 +36,12 @@ header {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         /*padding: 2rem 0;*/
-        @media screen and (max-width: 768px){
+        @include narrow{
             width: 100%;
             padding-bottom: 0; 
         }
         li{
-            @media screen and (max-width: 768px){
+            @include narrow{
                 width: 100%;
                 text-align: right;
                 padding: .5rem 0;
@@ -51,16 +53,16 @@ header {
         }
     }
     nav{
-        @media screen and (max-width: 768px){
+        @include narrow{
             display: none;
         }
     }
     .wrap{
-        @media screen and (max-width: 768px){
+        @include narrow{
             padding: 5px 15px;
         }
     }
-    @media screen and (max-width: 1240px){
+    @include wide{
         padding: 10px;
     }
 }//end of "header"

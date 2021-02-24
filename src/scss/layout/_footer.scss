@@ -3,22 +3,67 @@
 フッター
 *****************************/
 footer {
-    line-height: 3;
-    -webkit-box-shadow: 1px -2px 4px rgba(0, 0, 0, .1);
-            box-shadow: 1px -2px 4px rgba(0, 0, 0, .1);
-  }
-  @media screen and (max-width: 768px){
-   footer { padding-bottom: 50px; } }
-  footer .wrap { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
-  footer .widget-area { width: 33%; -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; padding: 5px 2rem; }
-  @media screen and (max-width: 768px){
-   footer .widget-area { width: 100%; } }
-  footer .widget-area ul { list-style: none; }
-  footer .copyright { text-align: center; width: 100%; }
-  footer .copyright a { text-decoration: none; color: #242439; -webkit-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
-  footer .copyright a:hover { color: #2BB24C; }
-  @media screen and (max-width: 1240px){
-   .nagare_footer_menu { display: none; } }
-  .nagare_footer_menu ul { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
-  .nagare_footer_menu ul li a { text-decoration: none!important; margin-right: 1em; color: #242439!important; }
-  .nagare_footer_menu ul li a:hover { color: #8F758E!important; }
+    @include gradientDown;
+    @include narrow{
+        padding-bottom: 50px;
+    }
+    .wrap{
+        width: 120rem;
+        margin: 0 auto;
+        padding: 5px 15px;
+        display: -webkit-box; 
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        @include wide{
+            width: 100%;
+        }
+        .copyright{
+            text-align: center;
+            width: 100%;
+            a{
+                color: $colorBlack;
+                &:hover{
+                    color: $green;
+                }
+            }
+        }
+    }
+    .widget-area{
+        width: 33%;
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        padding: 5px 2rem;
+        @include narrow{
+            width: 100%;
+        }
+
+    }
+}
+
+.nagare_footer_menu {
+    @include wide{
+        display: none;
+    }
+    ul{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        a{
+            margin-right: 1em;
+            color: #242439!important;
+            &:hover{
+                color: #8F758E!important;
+            }
+        }
+    }
+}

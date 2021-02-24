@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//* FONT
+//---------------------------- */
+@mixin fontSerif {
+    font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+}
+@mixin fontSanSerif {
+    font-family: -apple-system, BlinkMacSystemFont, "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN W3", HiraKakuProN-W3, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, "Segoe UI", sans-serif;
+}
+@mixin fz($size:16, $lh:24) {
+	font-size: ( $size / 16 ) * 1rem;
+	line-height: $lh / $size;
+}
+
+
+// @mixin DEVICE
+//==================================================
+@mixin wide {
+    @media screen and (max-width: 1240px){
+        @content;
+    }
+}
+@mixin narrow {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+
+// Color Settings
+//==================================================
+$purple: #8F758E;
+$lightBlue: #89E0DA;
+$colorBlack: #242439;
+$colorWhite:#f6f6f6;
+$green: #2BB24C;
+
+@mixin gradientDown {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+}
+@mixin gradientUp {
+    -webkit-box-shadow: 1px -2px 4px rgba(0, 0, 0, .1);
+            box-shadow: 1px -2px 4px rgba(0, 0, 0, .1);
+}
+
+
