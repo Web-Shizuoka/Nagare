@@ -100,6 +100,7 @@
         width: calc(100% - 4rem);
         margin: 0 auto;
         a{
+            display: inline-block;
             color: $purple;
             &:hover{
                 text-decoration: none;
@@ -122,20 +123,22 @@
         max-width: 100rem;
         width: calc(100% - 4rem);
         margin: 0 auto;
-
-        table{
-            border: 1px solid #000;
-            td{
-                border-bottom: 1px solid #000;
-                border-right: 1px solid #000;
-            }
-        }
         figcaption{
             text-align: center;;
         }
         img{
             margin: 0 auto;
             display: block;
+        }
+    }
+    table{
+        border: 1px solid #000;
+        th{
+            border: 1px solid #000;
+        }
+        td{
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
         }
     }
 }
