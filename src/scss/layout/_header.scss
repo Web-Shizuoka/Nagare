@@ -11,6 +11,10 @@ header {
         a{
             font-size: 2.5rem;
             font-weight: bold;
+            color: $colorBlack;
+            &:hover{
+                color: $purple;
+            }
         }
     }
     #logo{
@@ -49,7 +53,11 @@ header {
         }
         a { 
             padding: 0 10px;
-            
+            font-size: 1.6rem;
+            color: $colorBlack;
+            &:hover{
+                color: $purple;
+            }
         }
     }
     nav{
@@ -58,6 +66,7 @@ header {
         }
     }
     .wrap{
+        padding: 0 16px;
         @include narrow{
             padding: 5px 15px;
         }

@@ -5,7 +5,8 @@
 // ==========================================================================
 @import 'foundation/_reset';
 //@import 'foundation/_mixin';
-@import 'foundation/_color';
+@import 'foundation/settings';
+// @import 'foundation/_color';
 @import 'foundation/_base';
 //@import 'foundation/_slick';
 //@import 'foundation/_ipad';
@@ -24,15 +25,18 @@
 // Component
 // -----------------------------------------------------------------
 @import 'object/component/_parts';
-//@import 'object/component/_breadcrumb';
+@import 'object/component/_breadcrumb';
 @import 'object/component/_pagination';
 
 // -----------------------------------------------------------------
 // Project
 // -----------------------------------------------------------------
 //top
-@import 'object/project/top/_top-kv';
-//@import 'object/project/top/_top-news';
+// @import 'object/project/top/_top-kv';
+@import 'object/project/top/_posts';
+
+//pages
+@import 'object/project/pages/pages';
 
 //news
 //@import 'object/project/news/_news';
@@ -55,4 +59,3 @@
 // -----------------------------------------------------------------
 @import 'object/utility/_margin';
 @import 'object/utility/_animation';
-@import 'object/utility/_text';

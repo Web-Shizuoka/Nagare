@@ -24,8 +24,10 @@ footer {
         .copyright{
             text-align: center;
             width: 100%;
+            margin: 16px 0;
             a{
                 color: $colorBlack;
+                display: inline-block;
                 &:hover{
                     color: $green;
                 }
@@ -57,8 +59,9 @@ footer {
         -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-
+        margin: 16px 0;
         a{
+            font-size: 1.6rem;
             margin-right: 1em;
             color: #242439!important;
             &:hover{

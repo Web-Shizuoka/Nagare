@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+/*****************************
+投稿ページ 固定ページ
+*****************************/
+.single_contents,
+.page_contents {
+    width: 100%;
+    padding: 10px;
+
+    h1{
+        width: 100%;
+        margin: 0 auto;
+        font-size: 3rem;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    h2{
+        width: 100%;
+        font-size: 2.4rem;
+        padding-left: 10px;
+        border-left: solid 5px $purple;
+        margin: 30px auto 10px;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    h3{
+        width: 100%;
+        font-size: 2.2rem;
+        border-bottom: solid 1px $colorBlack;
+        margin: 25px auto 10px;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    h4{
+        width: 100%;
+        margin: 20px auto 0;
+        font-size: 2rem;
+        font-weight: bold;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    h5{
+        width: 100%;
+        margin: 0 auto;
+        font-weight: bold;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    h6{
+        width: 100%;
+        margin: 0 auto;
+        font-weight: bold;
+        @include wide{
+            width: calc(100% - 4rem);
+        }
+    }
+    ul,
+    ol{
+        padding-left: 3em;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .post_date{
+        text-align: right;
+        font-size: 1.3rem;
+        color: #555;
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+    }
+    .category_single{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+        a{
+            display: block;
+            padding: 5px 1rem;
+            text-decoration: none;
+            background-color: $purple;
+            color: $colorWhite;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    .tags_single{
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+        a{
+            color: $purple;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    // .text{
+    //     margin: 10px 0;
+    //     p{
+    //         width: 100%;
+    //         margin: 10px auto;
+    //     }
+    // }
+    p{
+        max-width: 100rem;
+        width: calc(100% - 4rem);
+        margin: 10px auto;
+    }
+    figure{
+        max-width: 100rem;
+        width: calc(100% - 4rem);
+        margin: 0 auto;
+
+        table{
+            border: 1px solid #000;
+            td{
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+            }
+        }
+        figcaption{
+            text-align: center;;
+        }
+        img{
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}

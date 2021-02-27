@@ -28,9 +28,10 @@
         }
         h2 {
             font-size: 2rem;
-            // line-height: 2;
+            color: $colorBlack;
+            line-height: 2;
             a:hover {
-                color: $green;
+                color: $purple;
             }
         }
     }

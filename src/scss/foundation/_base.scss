@@ -24,7 +24,9 @@ img{
 }
 
 body {
-    @include serif;
-  }
+    @include fontSerif;
+    color: #242439;
+    font-size: 1.6rem;
+}
 
 
