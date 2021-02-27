@@ -28,9 +28,9 @@
           
         <?php endwhile; ?>
           
-        <div class="nav_below">
-          <div class="nav_previous"><?php previous_post_link('%link', '&lt; PREVIOUS'); ?></div>
-          <div class="nav_next"><?php next_post_link('%link', 'NEXT &gt;'); ?></div>
+        <div class="nav-below">
+          <div class="nav-previous"><?php previous_post_link('%link', '&lt; PREVIOUS'); ?></div>
+          <div class="nav-next"><?php next_post_link('%link', 'NEXT &gt;'); ?></div>
         </div><!-- /.nav-nav_below -->
        
       <?php endif; ?>
