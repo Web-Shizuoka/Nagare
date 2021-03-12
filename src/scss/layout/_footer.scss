@@ -29,7 +29,7 @@ footer {
                 color: $colorBlack;
                 display: inline-block;
                 &:hover{
-                    color: $green;
+                    color: $purple;
                 }
             }
         }
@@ -63,9 +63,9 @@ footer {
         a{
             font-size: 1.6rem;
             margin-right: 1em;
-            color: #242439!important;
+            color: $colorBlack!important;
             &:hover{
-                color: #8F758E!important;
+                color: $purple!important;
             }
         }
     }

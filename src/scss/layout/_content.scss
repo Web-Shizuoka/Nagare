@@ -41,6 +41,9 @@
                     line-height: 1.5;
                     a{
                         color: $colorBlack;
+                        &:hover{
+                            color: $purple;
+                        }
                     }
                     
                 }
