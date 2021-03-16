@@ -56,8 +56,10 @@ gulp.task('sass2', function(){
 
 //watchタスク
 gulp.task('watch', function() {
-  gulp.watch(src.scssWatch, gulp.task('sass'));
-  gulp.watch(src.js, gulp.task('bundle'));
+  gulp.watch(src.scssWatch, gulp.task('sass1'));
+  gulp.watch(src.scssWatch, gulp.task('sass2'));
+  gulp.watch(src.js, gulp.task('bundle1'));
+  gulp.watch(src.js, gulp.task('bundle2'));
 });
 
 //defaultタスク
