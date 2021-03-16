@@ -4,6 +4,7 @@ var autoprefixer = require('gulp-autoprefixer');
 // var uglify = require('gulp-uglify');
 // var rename = require('gulp-rename');
 
+const concat = require('gulp-concat');
 var webpackStream = require("webpack-stream");
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config");
@@ -18,13 +19,20 @@ var AUTOPREFIXER_BROWSERS = [
 var src = {
   'scss': ['src/scss/style.scss'],
   'scssWatch': 'src/**/*.scss',
-  'js': ['src/**/*.js']
+  'js': ['src/js/**/*.js', '!src/js/plugins/**/*.js']
 };
 
 var dest = {
   'css': 'nagare/assets/css/',
   'js': 'nagare/assets/js/',
 };
+
+//plugins内のものをまとめる
+gulp.task('plugins', ()=>{
+  return gulp.src(['src/js/plugins/*.js'])
+  .pipe(concat('plugins.js'))
+  .pipe(gulp.dest('nagare/assets/js/'));
+});
 
 //webpackによるバンドル(nagareに)
 gulp.task('bundle', function(){
@@ -48,5 +56,5 @@ gulp.task('watch', function() {
 
 //defaultタスク
 gulp.task('default',
-  gulp.series('bundle','sass','watch')
+  gulp.series('plugins','bundle','sass','watch')
 );
