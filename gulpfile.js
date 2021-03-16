@@ -22,47 +22,31 @@ var src = {
 };
 
 var dest = {
-  'css': 'htdocs/assets/css/',
-  'js': 'htdocs/assets/js/',
+  'css': 'nagare/assets/css/',
+  'js': 'nagare/assets/js/',
 };
 
-//webpackによるバンドル(htdocsに)
-gulp.task('bundle1', function(){
+//webpackによるバンドル(nagareに)
+gulp.task('bundle', function(){
   return webpackStream(webpackConfig, webpack)
   .pipe(gulp.dest(dest.js));
 });
 
-//webpackによるバンドル(staticに)
-gulp.task('bundle2', function(){
-  return webpackStream(webpackConfig, webpack)
-  .pipe(gulp.dest('static/assets/js/'));
-});
-
-//Sassのコンパイル(htdocsに)
-gulp.task('sass1', function(){
+//Sassのコンパイル(nagareに)
+gulp.task('sass', function(){
   return gulp.src(src.scss)
   .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
   .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
   .pipe(gulp.dest(dest.css));
 });
 
-//Sassのコンパイル(staticに)
-gulp.task('sass2', function(){
-  return gulp.src(src.scss)
-  .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
-  .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-  .pipe(gulp.dest('static/assets/css/'));
-});
-
 //watchタスク
 gulp.task('watch', function() {
-  gulp.watch(src.scssWatch, gulp.task('sass1'));
-  gulp.watch(src.scssWatch, gulp.task('sass2'));
-  gulp.watch(src.js, gulp.task('bundle1'));
-  gulp.watch(src.js, gulp.task('bundle2'));
+  gulp.watch(src.scssWatch, gulp.task('sass'));
+  gulp.watch(src.js, gulp.task('bundle'));
 });
 
 //defaultタスク
 gulp.task('default',
-  gulp.series('bundle1','bundle2','sass1','sass2','watch')
+  gulp.series('bundle','sass','watch')
 );

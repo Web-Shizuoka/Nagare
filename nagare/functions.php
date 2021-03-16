@@ -1,4 +1,7 @@
 <?php
+/*****************************************************
+// CSSとJSファイルの読み込み
+******************************************************/
 function nagare_css_js() {
   wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.6.1/css/all.css');
   wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array( 'font-awesome' ));
@@ -8,9 +11,10 @@ function nagare_css_js() {
   wp_enqueue_script( 'nagare-index', get_template_directory_uri() . '/assets/js/index.js', array( 'plugins' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'nagare_css_js' );
-/**
- * 初期ウィジェットを無効化
- */
+
+/*****************************************************
+// 初期ウィジェットを無効化
+******************************************************/
 function remove_widgets(){
   unregister_widget('WP_Widget_Calendar'); //カレンダー
 
@@ -38,11 +42,14 @@ register_sidebar( array(
   'after_title' => '</h3>',
 ) );
 
-// アイキャッチ画像
+/*****************************************************
+// アイキャッチ画像有効化
+******************************************************/
 add_theme_support( 'post-thumbnails' );
 
-
+/*****************************************************
 // カスタムナビゲーションメニュー
+******************************************************/
 add_theme_support('menus');
 
 register_nav_menus( array(
@@ -51,15 +58,24 @@ register_nav_menus( array(
   'nav_mobile_btn'  => 'モバイルメニュー',
 ) );
 
+
+/*****************************************************
 // ツールバー非表示
+******************************************************/
 add_filter('show_admin_bar', '__return_false');
 
+
+/*****************************************************
 // 記事編集リンクカスタマイズ
+******************************************************/
 add_filter('edit_post_link', 'my_post_link');
 function my_post_link($output) {
   return str_replace('<a ', '<a class="nagare-no-barba" ', $output);
 }
 
+/*****************************************************
+// OGタグカスタムフィールド
+******************************************************/
 /*** カスタムフィールド項目定義 ***
  *
  * $meta_arr[$id] = array($name,$array,$option);
@@ -100,6 +116,7 @@ function ogp_meta_boxes() {
 }
 
 add_action('admin_menu', 'create_meta_box');
+
 /*** 投稿画面にカスタムフィールドのセクションを追加 ***/
 function create_meta_box() {
   if ( function_exists('add_meta_box') )
@@ -130,7 +147,9 @@ function save_postdata( $post_id ) {
   }
 }
 
-// headタグ内に任意のコードを読み込む
+/*****************************************************
+// headタグ内にOGタグを出力
+******************************************************/
 function head_original_load(){
   
   if(is_single() || is_page()){
@@ -218,132 +237,21 @@ function head_original_load(){
 }
 add_action('wp_head', 'head_original_load');
 
+/*****************************************************
+// タイトルタグ出力
+******************************************************/
 add_theme_support('title-tag');
 
-
-//追記
-function my_plugin_block_categories( $categories, $post ) {
-  return array_merge(
-    $categories,
-    array(
-      array(
-        'slug' => 'nagare',   //ブロックカテゴリーのスラッグ
-        'title' => 'Nagare',  //ブロックカテゴリーの表示名
-        'icon'  => 'palmtree',    //アイコンの指定（Dashicons名）
-      ),
-    )
-  );
+/*****************************************************
+// 有効化されているテーマのアップデート禁止（念のため）
+******************************************************/
+function hidden_theme( $r, $url ) {
+  if ( 0 !== strpos( $url, 'http://api.wordpress.org/themes/update-check' ) )
+    return $r;
+  $themes = unserialize( $r['body']['themes'] );
+  unset( $themes[ get_option( 'template' ) ] );
+  unset( $themes[ get_option( 'stylesheet' ) ] );
+  $r['body']['themes'] = serialize( $themes );
+  return $r;
 }
-add_filter( 'block_categories', 'my_plugin_block_categories', 10, 2 );
-
-function width_100_block_cgb_block_assets() { // phpcs:ignore
-    // Register block styles for both frontend + backend.
-    $block_url = get_template_directory_uri() . "/width-100-block/dist";
-    wp_register_style(
-        'width-100_block-cgb-style-css', // Handle.
-        "$block_url/blocks.style.build.css",
-        array( 'wp-editor' ), // Dependency to include the CSS after it.
-        null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-    );
-
-    // Register block editor script for backend.
-    wp_register_script(
-        'width-100_block-cgb-block-js', // Handle.
-        "$block_url/blocks.build.js",
-        array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-        null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime   Gets file modification time.
-        true // Enqueue the script in the footer.
-    );
-
-    // Register block editor styles for backend.
-    wp_register_style(
-        'width-100_block-cgb-block-editor-css', // Handle.
-        "$block_url/blocks.editor.build.css",
-        array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-        null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
-    );
-
-    /**
-     * Register Gutenberg block on server-side.
-     *
-     * Register the block on server-side to ensure that the block
-     * scripts and styles for both frontend and backend are
-     * enqueued when the editor loads.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
-     * @since 1.16.0
-     */
-    register_block_type(
-        'nagare/block-width-100', array(
-            // Enqueue blocks.style.build.css on both frontend & backend.
-            'style'         => 'width-100_block-cgb-style-css',
-            // Enqueue blocks.build.js in the editor only.
-            'editor_script' => 'width-100_block-cgb-block-js',
-            // Enqueue blocks.editor.build.css in the editor only.
-            'editor_style'  => 'width-100_block-cgb-block-editor-css',
-        )
-    );
-}
-
-function width_100_wrapper_cgb_block_assets() { // phpcs:ignore
-    // Register block styles for both frontend + backend.
-    $block_url = get_template_directory_uri() . "/width-100-wrapper/dist";
-    wp_register_style(
-        'width-100_wrapper-cgb-style-css', // Handle.
-        "$block_url/blocks.style.build.css",
-        array( 'wp-editor' ), // Dependency to include the CSS after it.
-        null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-    );
-
-    // Register block editor script for backend.
-    wp_register_script(
-        'width-100_wrapper-cgb-block-js', // Handle.
-        "$block_url/blocks.build.js",
-        array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-        null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime   Gets file modification time.
-        true // Enqueue the script in the footer.
-    );
-
-    // Register block editor styles for backend.
-    wp_register_style(
-        'width-100_wrapper-cgb-block-editor-css', // Handle.
-        "$block_url/blocks.editor.build.css",
-        array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-        null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
-    );
-
-    /**
-     * Register Gutenberg block on server-side.
-     *
-     * Register the block on server-side to ensure that the block
-     * scripts and styles for both frontend and backend are
-     * enqueued when the editor loads.
-     *
-     * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
-     * @since 1.16.0
-     */
-    register_block_type(
-        'nagare/wrapper-width-100', array(
-            // Enqueue blocks.style.build.css on both frontend & backend.
-            'style'         => 'width-100_wrapper-cgb-style-css',
-            // Enqueue blocks.build.js in the editor only.
-            'editor_script' => 'width-100_wrapper-cgb-block-js',
-            // Enqueue blocks.editor.build.css in the editor only.
-            'editor_style'  => 'width-100_wrapper-cgb-block-editor-css',
-        )
-    );
-}
-// Hook: Block assets.
-add_action( 'init', 'width_100_block_cgb_block_assets' );
-add_action( 'init', 'width_100_wrapper_cgb_block_assets' );
-
-
-//エディターへのスタイル適用
-if ( ! function_exists( 'nagare_2column_setup' ) ) :
-  function nagare_2column_setup() {
-      add_theme_support( 'editor-styles' );
-      add_editor_style( 'style-editor.css' );
-  }
-endif;
-add_action( 'after_setup_theme', 'nagare_2column_setup' );
-ini_set('mysql.trace_mode',0);
+add_filter( 'http_request_args', 'hidden_theme', 5, 2 );

@@ -9,7 +9,7 @@ module.exports = {
    // ファイルの出力設定
    output: {
        //  出力ファイルのディレクトリ名
-       path: `${__dirname}/htdocs/assets/js`,
+       path: `${__dirname}/nagare/assets/js`,
        // 出力ファイル名
        filename: 'index.js'
     },
