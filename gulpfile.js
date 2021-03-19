@@ -1,13 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-// var uglify = require('gulp-uglify');
-// var rename = require('gulp-rename');
 
 const concat = require('gulp-concat');
 var webpackStream = require("webpack-stream");
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config");
+const sourcemaps = require('gulp-sourcemaps');
 
 var AUTOPREFIXER_BROWSERS = [
   'last 2 version',
@@ -43,8 +42,10 @@ gulp.task('bundle', function(){
 //Sassのコンパイル(nagareに)
 gulp.task('sass', function(){
   return gulp.src(src.scss)
+  .pipe(sourcemaps.init())
   .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
   .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(dest.css));
 });
 
