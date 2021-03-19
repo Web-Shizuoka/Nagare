@@ -3,9 +3,9 @@
 // CSSとJSファイルの読み込み
 ******************************************************/
 function nagare_css_js() {
+  $styletime = filemtime( get_stylesheet_directory() . '/assets/css/style.css');
   wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.6.1/css/all.css');
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array( 'font-awesome' ));
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array( 'style-css' ));
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css?' . $styletime, array( 'font-awesome' ));
   
   wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', '', '', true );
   wp_enqueue_script( 'nagare-index', get_template_directory_uri() . '/assets/js/index.js', array( 'plugins' ), '', true );
