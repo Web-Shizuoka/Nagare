@@ -1,12 +1,13 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
 
 const concat = require('gulp-concat');
-var webpackStream = require("webpack-stream");
-var webpack = require("webpack");
-var webpackConfig = require("./webpack.config");
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.config");
 const sourcemaps = require('gulp-sourcemaps');
+const minifyCss  = require('gulp-minify-css');
 
 var AUTOPREFIXER_BROWSERS = [
   'last 2 version',
@@ -42,8 +43,11 @@ gulp.task('bundle', function(){
 //Sassのコンパイル(nagareに)
 gulp.task('sass', function(){
   return gulp.src(src.scss)
-  .pipe(sourcemaps.init())
-  .pipe(sass({outputStyle: 'compressed'})).on("error", sass.logError)
+  .pipe(sourcemaps.init({largeFile:true}))
+  .pipe(sass({
+    outputStyle: 'compressed'
+  })).on("error", sass.logError)
+  .pipe(minifyCss({advanced:false}))
   .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(dest.css));
